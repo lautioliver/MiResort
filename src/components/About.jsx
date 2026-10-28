@@ -7,9 +7,10 @@ export default function About() {
       <Text style={styles.label}>EL HOTEL</Text>
       <Text style={styles.heading}>Sobre MiResort</Text>
       <Text style={styles.text}>
-        MiResort es un hotel frente al mar con piscina, spa, restaurante y
-        habitaciones pensadas para descansar. Estamos a pocos minutos del
-        centro y ofrecemos desayuno incluido, wifi gratis y estacionamiento.
+        MiResort es una cadena de hoteles con sedes en la ciudad, la playa, la
+        montaña y entre viñedos. Todos nuestros hoteles tienen piscina, spa,
+        restaurante y habitaciones pensadas para descansar, con desayuno
+        incluido, wifi gratis y estacionamiento.
       </Text>
       <View style={styles.datos}>
         <Text style={styles.item}>Check-in 14:00 hs</Text>
