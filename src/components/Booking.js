@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Alert, Modal, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
+import alerta from '../alerta';
 
 const habitaciones = [
   { id: 1, nombre: 'Habitación Simple', descripcion: '1 cama single', precio: 50 },
@@ -13,7 +14,7 @@ export default function Booking() {
 
   const reservar = (habitacion) => {
     setVisible(false);
-    Alert.alert(
+    alerta(
       'Reserva confirmada',
       `Reservaste: ${habitacion.nombre} ($${habitacion.precio} por noche).`
     );

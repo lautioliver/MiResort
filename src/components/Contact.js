@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Alert, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import alerta from '../alerta';
 
 export default function Contact() {
   const [nombre, setNombre] = useState('');
@@ -8,10 +9,10 @@ export default function Contact() {
 
   const enviar = () => {
     if (!nombre || !email || !mensaje) {
-      Alert.alert('Faltan datos', 'Completá todos los campos.');
+      alerta('Faltan datos', 'Completá todos los campos.');
       return;
     }
-    Alert.alert('Mensaje enviado', `Gracias ${nombre}, te vamos a responder a ${email}.`);
+    alerta('Mensaje enviado', `Gracias ${nombre}, te vamos a responder a ${email}.`);
     setNombre('');
     setEmail('');
     setMensaje('');
