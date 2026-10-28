@@ -5,6 +5,7 @@ import Header from './src/components/Header';
 import About from './src/components/About';
 import Contact from './src/components/Contact';
 import Booking from './src/components/Booking';
+import Habitaciones from './src/components/Habitaciones';
 
 export default function App() {
   const scrollRef = useRef(null);
@@ -26,6 +27,9 @@ export default function App() {
       </View>
       <View onLayout={guardarPosicion('about')}>
         <About />
+      </View>
+      <View onLayout={guardarPosicion('habitaciones')}>
+        <Habitaciones />
       </View>
       <View onLayout={guardarPosicion('contact')}>
         <Contact />

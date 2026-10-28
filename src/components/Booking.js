@@ -1,24 +1,14 @@
 import { useState } from 'react';
 import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
-import alerta from '../alerta';
+import habitaciones, { confirmarReserva } from '../habitaciones';
 import { colores, serif } from '../theme';
-
-const habitaciones = [
-  { id: 1, nombre: 'Habitación Simple', descripcion: '1 cama single', precio: 50 },
-  { id: 2, nombre: 'Habitación Doble', descripcion: '1 cama matrimonial', precio: 80 },
-  { id: 3, nombre: 'Habitación Familiar', descripcion: '1 matrimonial + 2 single', precio: 120 },
-  { id: 4, nombre: 'Suite', descripcion: 'Vista al mar y jacuzzi', precio: 200 },
-];
 
 export default function Booking() {
   const [visible, setVisible] = useState(false);
 
   const reservar = (habitacion) => {
     setVisible(false);
-    alerta(
-      'Reserva confirmada',
-      `Reservaste: ${habitacion.nombre} ($${habitacion.precio} por noche).`
-    );
+    confirmarReserva(habitacion);
   };
 
   return (

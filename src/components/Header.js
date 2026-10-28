@@ -4,7 +4,7 @@ import Carousel from './Carousel';
 
 const links = [
   { label: 'HOTEL', seccion: 'about' },
-  { label: 'HABITACIONES', seccion: 'booking' },
+  { label: 'HABITACIONES', seccion: 'habitaciones' },
   { label: 'CONTACTO', seccion: 'contact' },
 ];
 
