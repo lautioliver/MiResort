@@ -1,5 +1,6 @@
-import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { colores, serif } from '../theme';
+import Carousel from './Carousel';
 
 const links = [
   { label: 'HOTEL', seccion: 'about' },
@@ -24,14 +25,7 @@ export default function Header({ onNavigate }) {
           ))}
         </View>
       </View>
-      <ImageBackground
-        source={{ uri: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600&q=80' }}
-        style={styles.hero}
-      >
-        <View style={styles.overlay}>
-          <Text style={styles.heroText}>Tu descanso empieza acá</Text>
-        </View>
-      </ImageBackground>
+      <Carousel />
     </View>
   );
 }
@@ -74,22 +68,5 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: 'bold',
     color: colores.texto,
-  },
-  hero: {
-    height: 340,
-  },
-  overlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.3)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-    paddingBottom: 60,
-  },
-  heroText: {
-    fontFamily: serif,
-    fontSize: 26,
-    color: colores.blanco,
-    textAlign: 'center',
   },
 });
