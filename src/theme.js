@@ -7,6 +7,7 @@ export const colores = {
   gris: '#7a7a7a',
   linea: '#e2d8ce',
   blanco: '#fff',
+  error: '#b3261e',
 };
 
 export const serif = Platform.select({ android: 'serif', default: 'Georgia' });
