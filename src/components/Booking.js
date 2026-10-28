@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
 import alerta from '../alerta';
+import { colores, serif } from '../theme';
 
 const habitaciones = [
   { id: 1, nombre: 'Habitación Simple', descripcion: '1 cama single', precio: 50 },
@@ -21,26 +22,28 @@ export default function Booking() {
   };
 
   return (
-    <View style={styles.section}>
-      <Text style={styles.heading}>Reservas</Text>
-      <Text style={styles.text}>Tenemos 4 tipos de habitaciones disponibles.</Text>
+    <View style={styles.card}>
+      <Text style={styles.label}>HABITACIONES Y HUÉSPEDES</Text>
+      <Text style={styles.text}>4 tipos de habitaciones disponibles</Text>
       <Pressable style={styles.button} onPress={() => setVisible(true)}>
-        <Text style={styles.buttonText}>Reservar habitación</Text>
+        <Text style={styles.buttonText}>Reservar</Text>
       </Pressable>
 
-      <Modal visible={visible} transparent animationType="slide">
+      <Modal visible={visible} transparent animationType="fade">
         <View style={styles.overlay}>
           <View style={styles.modal}>
             <Text style={styles.heading}>Elegí una habitación</Text>
             {habitaciones.map((h) => (
               <Pressable key={h.id} style={styles.option} onPress={() => reservar(h)}>
-                <Text style={styles.optionTitle}>{h.nombre}</Text>
-                <Text style={styles.optionText}>{h.descripcion}</Text>
-                <Text style={styles.price}>${h.precio} / noche</Text>
+                <View>
+                  <Text style={styles.optionTitle}>{h.nombre}</Text>
+                  <Text style={styles.optionText}>{h.descripcion}</Text>
+                </View>
+                <Text style={styles.price}>${h.precio}</Text>
               </Pressable>
             ))}
             <Pressable onPress={() => setVisible(false)}>
-              <Text style={styles.cancel}>Cancelar</Text>
+              <Text style={styles.cancel}>CANCELAR</Text>
             </Pressable>
           </View>
         </View>
@@ -50,69 +53,89 @@ export default function Booking() {
 }
 
 const styles = StyleSheet.create({
-  section: {
+  card: {
+    backgroundColor: colores.blanco,
+    marginHorizontal: 20,
+    marginTop: -50,
     padding: 20,
+    shadowColor: '#000',
+    shadowOpacity: 0.15,
+    shadowRadius: 10,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 5,
   },
-  heading: {
-    fontSize: 22,
+  label: {
+    fontSize: 12,
     fontWeight: 'bold',
-    color: '#0f4c5c',
-    marginBottom: 10,
+    letterSpacing: 1,
+    color: colores.texto,
   },
   text: {
     fontSize: 15,
-    color: '#333',
+    color: colores.gris,
+    paddingVertical: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: colores.arena,
   },
   button: {
-    backgroundColor: '#e36414',
+    backgroundColor: colores.arena,
     padding: 14,
-    borderRadius: 8,
     alignItems: 'center',
-    marginTop: 14,
+    marginTop: 16,
   },
   buttonText: {
-    color: '#fff',
+    color: colores.blanco,
     fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: 15,
+    letterSpacing: 1,
   },
   overlay: {
     flex: 1,
     backgroundColor: 'rgba(0,0,0,0.5)',
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
+    padding: 20,
   },
   modal: {
-    backgroundColor: '#fff',
-    borderTopLeftRadius: 16,
-    borderTopRightRadius: 16,
-    padding: 20,
-    paddingBottom: 40,
+    backgroundColor: colores.blanco,
+    padding: 24,
+    width: '100%',
+    maxWidth: 480,
+    alignSelf: 'center',
+  },
+  heading: {
+    fontFamily: serif,
+    fontSize: 24,
+    color: colores.texto,
+    marginBottom: 16,
   },
   option: {
-    borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 8,
-    padding: 12,
-    marginBottom: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: colores.linea,
+    paddingVertical: 14,
   },
   optionTitle: {
     fontSize: 16,
-    fontWeight: 'bold',
-    color: '#333',
+    color: colores.texto,
   },
   optionText: {
-    fontSize: 14,
-    color: '#666',
+    fontSize: 13,
+    color: colores.gris,
+    marginTop: 2,
   },
   price: {
-    fontSize: 14,
-    color: '#e36414',
-    fontWeight: 'bold',
-    marginTop: 4,
+    fontFamily: serif,
+    fontSize: 18,
+    color: colores.texto,
   },
   cancel: {
     textAlign: 'center',
-    color: '#0f4c5c',
-    fontSize: 16,
-    marginTop: 6,
+    color: colores.gris,
+    fontSize: 13,
+    fontWeight: 'bold',
+    letterSpacing: 1,
+    marginTop: 20,
   },
 });
